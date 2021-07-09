@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Text } from "react-native";
 
 function FetchData(props = { miner: "" }) {
-  const [stats, setStats] = useState({});
+  const [stats, setStats] = useState([]);
 
   const url = `https://api.ethermine.org/miner/${props.miner}/currentStats`;
 
@@ -11,8 +11,7 @@ function FetchData(props = { miner: "" }) {
     axios
       .get(url)
       .then((res) => {
-        res = res.data;
-        setStats({ res });
+        setStats(res.data);
       })
       .catch((err) => {
         console.error(err);
