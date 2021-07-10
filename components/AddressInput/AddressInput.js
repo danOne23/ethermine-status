@@ -26,7 +26,6 @@ const AddressInput = () => {
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    borderColor: "#fffff",
     width: Dimensions.get("window").width,
     textAlign: "center",
   },

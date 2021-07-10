@@ -26,8 +26,9 @@ function FetchData(props = { miner: "" }) {
     }
   }, [props.miner]);
 
-  if (stats !== "invalid") return <Text>{JSON.stringify(stats)}</Text>;
-  else return <Text>Invalid address</Text>;
+  if (stats !== "invalid")
+    return <Text style={{ textAlign: "center" }}>{JSON.stringify(stats)}</Text>;
+  else return <Text style={{ textAlign: "center" }}>Invalid address</Text>;
 }
 
 export default FetchData;
