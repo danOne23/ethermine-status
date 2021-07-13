@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import ethereumAddress from "ethereum-address";
+import Stats from "../Stats/Stats";
 
 function FetchData(props = { miner: "" }) {
   const [stats, setStats] = useState();
+  const [loading, setLoading] = useState(true);
 
   const url = `https://api.ethermine.org/miner/${props.miner}/currentStats`;
 
@@ -12,7 +14,8 @@ function FetchData(props = { miner: "" }) {
     axios
       .get(url)
       .then((res) => {
-        setStats(res.data);
+        setStats(res.data["data"]);
+        setLoading(false);
       })
       .catch((err) => {
         console.error(err);
@@ -22,13 +25,18 @@ function FetchData(props = { miner: "" }) {
   useEffect(() => {
     if (ethereumAddress.isAddress(props.miner)) getMinerStats();
     else {
-      setStats("invalid");
+      setStats();
+      setLoading(true);
     }
   }, [props.miner]);
 
-  if (stats !== "invalid")
-    return <Text style={{ textAlign: "center" }}>{JSON.stringify(stats)}</Text>;
-  else return <Text style={{ textAlign: "center" }}>Invalid address</Text>;
+  if (loading)
+    return (
+      <View>
+        <Text>Invalid address</Text>
+      </View>
+    );
+  return <Stats stats={stats} />;
 }
 
 export default FetchData;

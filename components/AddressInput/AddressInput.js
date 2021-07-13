@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     height: 40,
     width: Dimensions.get("window").width,
     textAlign: "center",
+    color: "#808080",
   },
 });
 
