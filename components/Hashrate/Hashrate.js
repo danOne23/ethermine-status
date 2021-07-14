@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Text } from "react-native";
+import React from "react";
+import { StyleSheet, Text } from "react-native";
 
 function Hashrate(props) {
   const FormatHashrate = (rawHashrate) => {
@@ -8,7 +8,14 @@ function Hashrate(props) {
     return `${formattedHashrate} MH/s`;
   };
 
-  return <Text>{FormatHashrate(props.hashrate)}</Text>;
+  return <Text style={styles.text}>{FormatHashrate(props.hashrate)}</Text>;
 }
+
+const styles = StyleSheet.create({
+  text: {
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});
 
 export default Hashrate;

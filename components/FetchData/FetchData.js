@@ -33,7 +33,7 @@ function FetchData(props = { miner: "" }) {
   if (loading)
     return (
       <View>
-        <Text>Invalid address</Text>
+        <Text style={{ textAlign: "center" }}>Invalid address</Text>
       </View>
     );
   return <Stats stats={stats} />;
