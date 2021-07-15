@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import React, { useEffect, useState } from "react";
 import { TextInput, StyleSheet, View, Dimensions } from "react-native";
 import FetchData from "../FetchData/FetchData";
 
 const AddressInput = () => {
   const [address, onChangeAddress] = useState();
+
+  useEffect(() => {
+    AsyncStorage.getItem("miner")
+      .then((miner) => onChangeAddress(miner))
+      .catch((err) => console.error(err));
+  });
 
   return (
     <View

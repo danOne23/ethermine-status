@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Text, View } from "react-native";
 import ethereumAddress from "ethereum-address";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Stats from "../Stats/Stats";
 
 function FetchData(props = { miner: "" }) {
@@ -23,8 +24,12 @@ function FetchData(props = { miner: "" }) {
   };
 
   useEffect(() => {
-    if (ethereumAddress.isAddress(props.miner)) getMinerStats();
-    else {
+    if (ethereumAddress.isAddress(props.miner)) {
+      getMinerStats();
+      AsyncStorage.setItem("miner", props.miner).catch((err) =>
+        console.error(err)
+      );
+    } else {
       setStats();
       setLoading(true);
     }

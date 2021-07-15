@@ -7,6 +7,8 @@
     "start": "react-native start"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.5",
+    "@react-native-community/async-storage": "^1.12.1",
     "axios": "^0.21.1",
     "ethereum-address": "^0.0.4",
     "expo": "~42.0.1",
