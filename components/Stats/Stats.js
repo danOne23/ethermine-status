@@ -1,24 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View } from "react-native";
 import Hashrate from "../Hashrate/Hashrate";
 
 function Stats(props = { stats: "" }) {
   return (
     <View>
-      <Text style={styles.text}>Current Hashrate:</Text>
-      <Hashrate hashrate={props.stats["currentHashrate"]} />
-      <Text style={styles.text}>Reported Hashrate:</Text>
-      <Hashrate hashrate={props.stats["reportedHashrate"]} />
-      <Text style={styles.text}>Average Hashrate:</Text>
-      <Hashrate hashrate={props.stats["reportedHashrate"]} />t
+      <Hashrate stats={props.stats} hashrateName={"currentHashrate"} />
+      <Hashrate stats={props.stats} hashrateName={"reportedHashrate"} />
+      <Hashrate stats={props.stats} hashrateName={"reportedHashrate"} />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    textAlign: "center",
-  },
-});
 
 export default Stats;

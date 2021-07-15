@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 function Hashrate(props) {
   const FormatHashrate = (rawHashrate) => {
@@ -8,13 +8,40 @@ function Hashrate(props) {
     return `${formattedHashrate} MH/s`;
   };
 
-  return <Text style={styles.text}>{FormatHashrate(props.hashrate)}</Text>;
+  const FormatName = (rawName = "") => {
+    let formattedName = rawName;
+    for (let i = 1; i < rawName.length; i++) {
+      if (rawName[i].toUpperCase() == rawName[i]) {
+        formattedName =
+          formattedName.slice(0, i) + " " + formattedName.slice(i);
+      }
+    }
+
+    formattedName =
+      formattedName.charAt(0).toUpperCase() + formattedName.slice(1);
+
+    return formattedName;
+  };
+
+  return (
+    <View style={styles.container}>
+      <Text>
+        {FormatName(props.hashrateName)}
+        {": "}
+      </Text>
+      <Text style={styles.hashrate}>
+        {FormatHashrate(props.stats[props.hashrateName])}
+      </Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  text: {
-    fontWeight: "bold",
+  container: {
     textAlign: "center",
+  },
+  hashrate: {
+    fontWeight: "bold",
   },
 });
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { TextInput, StyleSheet, View, Dimensions } from "react-native";
 import FetchData from "../FetchData/FetchData";
 
