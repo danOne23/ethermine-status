@@ -14,11 +14,11 @@ function FetchData(props = { miner: "" }) {
   const getMinerStats = () => {
     axios
       .get(url)
-      .then((res) => {
+      .then(res => {
         setStats(res.data["data"]);
         setLoading(false);
       })
-      .catch((err) => {
+      .catch(err => {
         console.error(err);
       });
   };
@@ -26,8 +26,8 @@ function FetchData(props = { miner: "" }) {
   useEffect(() => {
     if (ethereumAddress.isAddress(props.miner)) {
       getMinerStats();
-      AsyncStorage.setItem("miner", props.miner).catch((err) =>
-        console.error(err)
+      AsyncStorage.setItem("miner", props.miner).catch(err =>
+        console.error(err),
       );
     } else {
       setStats();

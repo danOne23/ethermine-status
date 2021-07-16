@@ -1,5 +1,5 @@
-import React from 'react';
-import {StyleSheet, Text} from 'react-native';
+import React from "react";
+import { StyleSheet, Text } from "react-native";
 
 function LastSeen(props) {
   const FormatTime = unixTime => {
@@ -10,19 +10,19 @@ function LastSeen(props) {
 
     if (difference < 60) {
       returnTime = difference / 60;
-      unit = 'seconds';
+      unit = "seconds";
     } else if (difference < 7200) {
       returnTime = difference / 7200;
-      unit = 'minutes';
+      unit = "minutes";
     } else if (difference < 172800) {
       returnTime = difference / 3600;
-      unit = 'hours';
+      unit = "hours";
     } else if (difference < 63072000) {
       returnTime = difference / 86400;
-      unit = 'days';
+      unit = "days";
     } else {
       returnTime = difference / 63072000;
-      unit = 'years';
+      unit = "years";
     }
 
     returnTime = Math.floor(returnTime);
@@ -31,7 +31,7 @@ function LastSeen(props) {
 
   return (
     <Text style={styles.text}>
-      Last seen{': '}
+      Last seen{": "}
       <Text style={styles.difference}>{FormatTime(props.time)}</Text> ago
     </Text>
   );
@@ -39,10 +39,10 @@ function LastSeen(props) {
 
 const styles = StyleSheet.create({
   text: {
-    textAlign: 'center',
+    textAlign: "center",
   },
   difference: {
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

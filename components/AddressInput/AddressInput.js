@@ -8,8 +8,8 @@ const AddressInput = () => {
 
   useEffect(() => {
     AsyncStorage.getItem("miner")
-      .then((miner) => onChangeAddress(miner))
-      .catch((err) => console.error(err));
+      .then(miner => onChangeAddress(miner))
+      .catch(err => console.error(err));
   }, []);
 
   return (
@@ -17,8 +17,7 @@ const AddressInput = () => {
       style={{
         justifyContent: "center",
         textAlign: "center",
-      }}
-    >
+      }}>
       <TextInput
         style={styles.input}
         onChangeText={onChangeAddress}
