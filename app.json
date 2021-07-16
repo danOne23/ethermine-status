@@ -1,11 +1,4 @@
 {
-  "expo": {
-    "name": "ethermine-status",
-    "slug": "ethermine-status",
-    "version": "1.0.0",
-    "assetBundlePatterns": [
-      "**/*"
-    ]
-  },
-  "name": "ethermine-status"
+  "name": "ethermineStatus",
+  "displayName": "ethermineStatus"
 }
