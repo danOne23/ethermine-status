@@ -10,7 +10,7 @@ const AddressInput = () => {
     AsyncStorage.getItem("miner")
       .then((miner) => onChangeAddress(miner))
       .catch((err) => console.error(err));
-  });
+  }, []);
 
   return (
     <View
