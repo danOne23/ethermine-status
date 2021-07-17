@@ -4,6 +4,7 @@ import ActiveWorkers from "./ActiveWorkers";
 import Hashrate from "./Hashrate";
 import LastSeen from "./LastSeen";
 import Shares from "./Shares";
+import Currency from "./Currency";
 
 function Stats(props = { stats: "" }) {
   return (
@@ -19,6 +20,9 @@ function Stats(props = { stats: "" }) {
         <Shares stats={props.stats} name={"validShares"} />
         <Shares stats={props.stats} name={"invalidShares"} />
         <Shares stats={props.stats} name={"staleShares"} />
+      </View>
+      <View style={styles.container}>
+        <Currency stats={props.stats} name={"unpaid"} currency={"ETH"} />
       </View>
     </ScrollView>
   );
