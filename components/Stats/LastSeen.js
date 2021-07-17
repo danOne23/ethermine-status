@@ -31,7 +31,7 @@ function LastSeen(props) {
 
   return (
     <Text style={styles.text}>
-      Last seen{": "}
+      Last Seen{": "}
       <Text style={styles.difference}>{FormatTime(props.time)}</Text> ago
     </Text>
   );
