@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
-function Shares(props) {
+function Shares(props = { stats: {}, name: "" }) {
   const FormatName = (rawName = "") => {
     let formattedName = rawName;
     for (let i = 1; i < rawName.length; i++) {

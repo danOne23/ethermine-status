@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, StyleSheet } from "react-native";
 
-function ActiveWorkers(props) {
+function ActiveWorkers(props = { workers: 0 }) {
   return (
     <Text style={styles.name}>
       Active Workers{": "}

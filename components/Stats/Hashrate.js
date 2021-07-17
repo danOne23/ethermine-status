@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 
-function Hashrate(props) {
+function Hashrate(props = { stats: {}, name: "" }) {
   const FormatHashrate = rawHashrate => {
     let formattedHashrate = rawHashrate / 1000000;
     formattedHashrate = formattedHashrate.toFixed(2);

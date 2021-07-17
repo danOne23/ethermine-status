@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text } from "react-native";
 
-function LastSeen(props) {
+function LastSeen(props = { time: 0 }) {
   const FormatTime = unixTime => {
     let now = Math.floor(Date.now() / 1000);
     let difference = now - props.time;
