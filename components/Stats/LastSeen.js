@@ -9,10 +9,10 @@ function LastSeen(props) {
     let unit;
 
     if (difference < 60) {
-      returnTime = difference / 60;
+      returnTime = difference;
       unit = "seconds";
     } else if (difference < 7200) {
-      returnTime = difference / 7200;
+      returnTime = difference / 60;
       unit = "minutes";
     } else if (difference < 172800) {
       returnTime = difference / 3600;
