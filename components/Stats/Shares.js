@@ -1,1 +1,55 @@
 import React from "react";
+import { Text, StyleSheet } from "react-native";
+
+function Shares(props) {
+  const FormatName = (rawName = "") => {
+    let formattedName = rawName;
+    for (let i = 1; i < rawName.length; i++) {
+      if (rawName[i].toUpperCase() == rawName[i]) {
+        formattedName =
+          formattedName.slice(0, i) + " " + formattedName.slice(i);
+      }
+    }
+
+    formattedName =
+      formattedName.charAt(0).toUpperCase() + formattedName.slice(1);
+
+    return formattedName;
+  };
+
+  const CalculateSharePercentage = (valid, invalid, stale, target) =>
+    parseFloat((target / (valid + invalid + stale)) * 100).toFixed(0);
+
+  const Name = (name, percentage) => {
+    if (percentage > 0) return `${name} ${percentage}%`;
+    else return name;
+  };
+
+  return (
+    <Text style={styles.name}>
+      {Name(
+        FormatName(props.name),
+        CalculateSharePercentage(
+          props.stats["validShares"],
+          props.stats["invalidShares"],
+          props.stats["staleShares"],
+          props.stats[props.name],
+        ),
+      )}
+      {": "}
+      <Text style={styles.shares}>{props.stats[props.name]}</Text>
+    </Text>
+  );
+}
+
+const styles = StyleSheet.create({
+  name: {
+    textAlign: "center",
+  },
+  shares: {
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+});
+
+export default Shares;
