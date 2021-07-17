@@ -22,7 +22,12 @@ function Stats(props = { stats: "" }) {
         <Shares stats={props.stats} name={"staleShares"} />
       </View>
       <View style={styles.container}>
-        <Unpaid stats={props.stats} name={"unpaid"} currency={"ETH"} />
+        <Unpaid
+          stats={props.stats}
+          name={"unpaid"}
+          currency={"ETH"}
+          decimals={5}
+        />
       </View>
     </ScrollView>
   );
