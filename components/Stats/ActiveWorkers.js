@@ -1,23 +1,14 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text } from "react-native";
+import { styles } from "./Stats";
 
 function ActiveWorkers(props = { workers: 0 }) {
   return (
-    <Text style={styles.name}>
+    <Text style={styles.title}>
       Active Workers{": "}
-      <Text style={styles.workers}>{props.workers}</Text>{" "}
+      <Text style={styles.value}>{props.workers}</Text>{" "}
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-  name: {
-    textAlign: "center",
-  },
-  workers: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
 
 export default ActiveWorkers;

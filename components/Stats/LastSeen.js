@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text } from "react-native";
+import { Text } from "react-native";
+import { styles } from "./Stats";
 
 function LastSeen(props = { time: 0 }) {
   const FormatTime = unixTime => {
@@ -30,20 +31,11 @@ function LastSeen(props = { time: 0 }) {
   };
 
   return (
-    <Text style={styles.text}>
+    <Text style={styles.title}>
       Last Seen{": "}
-      <Text style={styles.difference}>{FormatTime(props.time)}</Text> ago
+      <Text style={styles.value}>{FormatTime(props.time)}</Text> ago
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    textAlign: "center",
-  },
-  difference: {
-    fontWeight: "bold",
-  },
-});
 
 export default LastSeen;

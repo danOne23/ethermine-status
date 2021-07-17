@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text } from "react-native";
+import { styles } from "./Stats";
 
 function Shares(props = { stats: {}, name: "" }) {
   const FormatName = (rawName = "") => {
@@ -26,7 +27,7 @@ function Shares(props = { stats: {}, name: "" }) {
   };
 
   return (
-    <Text style={styles.name}>
+    <Text style={styles.title}>
       {Name(
         FormatName(props.name),
         CalculateSharePercentage(
@@ -37,19 +38,9 @@ function Shares(props = { stats: {}, name: "" }) {
         ),
       )}
       {": "}
-      <Text style={styles.shares}>{props.stats[props.name]}</Text>
+      <Text style={styles.value}>{props.stats[props.name]}</Text>
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-  name: {
-    textAlign: "center",
-  },
-  shares: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
 
 export default Shares;

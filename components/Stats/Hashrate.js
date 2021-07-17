@@ -1,5 +1,6 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Text, View } from "react-native";
+import { styles } from "./Stats";
 
 function Hashrate(props = { stats: {}, name: "" }) {
   const FormatHashrate = rawHashrate => {
@@ -25,25 +26,15 @@ function Hashrate(props = { stats: {}, name: "" }) {
 
   return (
     <View>
-      <Text style={styles.name}>
+      <Text style={styles.title}>
         {FormatName(props.name)}
         {": "}
-        <Text style={styles.hashrate}>
+        <Text style={styles.value}>
           {FormatHashrate(props.stats[props.name])}
         </Text>
       </Text>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  name: {
-    textAlign: "center",
-  },
-  hashrate: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
 
 export default Hashrate;

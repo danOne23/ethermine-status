@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Text, StyleSheet } from "react-native";
+import { Text } from "react-native";
+import { styles } from "./Stats";
 
 function Unpaid(props = { stats: {}, name: "", currency: "" }) {
   const [value, setValue] = useState();
@@ -12,23 +13,13 @@ function Unpaid(props = { stats: {}, name: "", currency: "" }) {
   });
 
   return (
-    <Text style={styles.name}>
+    <Text style={styles.title}>
       Unpaid:{" "}
-      <Text style={styles.unpaid}>
+      <Text style={styles.value}>
         {value} {props.currency}
       </Text>
     </Text>
   );
 }
-
-const styles = StyleSheet.create({
-  name: {
-    textAlign: "center",
-  },
-  unpaid: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
 
 export default Unpaid;
