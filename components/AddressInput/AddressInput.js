@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { TextInput, StyleSheet, View, Dimensions } from "react-native";
 import FetchData from "../FetchData/FetchData";
 
-const AddressInput = () => {
+function AddressInput() {
   const [address, onChangeAddress] = useState();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const AddressInput = () => {
       <FetchData miner={address} />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   input: {
