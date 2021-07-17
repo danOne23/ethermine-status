@@ -14,7 +14,7 @@ function Stats(props = { stats: "" }) {
       <View style={styles.container}>
         <Hashrate stats={props.stats} name={"currentHashrate"} />
         <Hashrate stats={props.stats} name={"reportedHashrate"} />
-        <Hashrate stats={props.stats} name={"reportedHashrate"} />
+        <Hashrate stats={props.stats} name={"averageHashrate"} />
       </View>
       <View style={styles.container}>
         <Shares stats={props.stats} name={"validShares"} />
