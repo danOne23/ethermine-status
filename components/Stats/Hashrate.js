@@ -25,7 +25,7 @@ function Hashrate(props) {
 
   return (
     <View>
-      <Text style={styles.hashrateName}>
+      <Text style={styles.name}>
         {FormatName(props.name)}
         {": "}
         <Text style={styles.hashrate}>
@@ -37,7 +37,7 @@ function Hashrate(props) {
 }
 
 const styles = StyleSheet.create({
-  hashrateName: {
+  name: {
     textAlign: "center",
   },
   hashrate: {
