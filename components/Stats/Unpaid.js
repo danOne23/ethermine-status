@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import { styles } from "./Stats";
+import BigNumber from "bignumber.js";
 
-function Unpaid(props = { stats: {}, name: "", currency: "" }) {
+function Unpaid(props = { stats: {}, name: "", currency: "", decimals: 5 }) {
   const [value, setValue] = useState();
 
-  const WeiToEth = wei => (wei / Math.pow(10, 18)).toFixed(7);
+  const WeiToEth = (wei = new BigNumber(), decimals) =>
+    wei.dividedBy(Math.pow(10, 18)).toFixed(decimals);
 
   useEffect(() => {
     if (props.currency.toLowerCase() == "eth")
-      setValue(WeiToEth(props.stats[props.name]));
+      setValue(
+        WeiToEth(new BigNumber(props.stats[props.name]), props.decimals),
+      );
   });
 
   return (
