@@ -26,10 +26,10 @@ function Hashrate(props) {
   return (
     <View>
       <Text style={styles.hashrateName}>
-        {FormatName(props.hashrateName)}
+        {FormatName(props.name)}
         {": "}
         <Text style={styles.hashrate}>
-          {FormatHashrate(props.stats[props.hashrateName])}
+          {FormatHashrate(props.stats[props.name])}
         </Text>
       </Text>
     </View>
