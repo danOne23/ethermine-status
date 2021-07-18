@@ -2,12 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import { styles } from "./Stats";
 import BigNumber from "bignumber.js";
+import { WeiToEth } from "./Functions";
 
 function Unpaid(props = { stats: {}, name: "", currency: "", decimals: 5 }) {
   const [value, setValue] = useState();
-
-  const WeiToEth = (wei = new BigNumber(), decimals) =>
-    wei.dividedBy(Math.pow(10, 18)).toFixed(decimals);
 
   useEffect(() => {
     if (props.currency.toLowerCase() == "eth")
