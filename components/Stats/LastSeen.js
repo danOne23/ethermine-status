@@ -4,12 +4,20 @@ import { FormatTime } from "./Functions";
 import { styles } from "./Stats";
 
 function LastSeen(props = { time: 0 }) {
-  return (
-    <Text style={styles.title}>
-      Last Seen{": "}
-      <Text style={styles.value}>{FormatTime(props.time)}</Text> ago
-    </Text>
-  );
+  if (props.time !== null) {
+    return (
+      <Text style={styles.title}>
+        Last Seen{": "}
+        <Text style={styles.value}>{FormatTime(props.time)}</Text> ago
+      </Text>
+    );
+  } else
+    return (
+      <Text style={styles.title}>
+        Last Seen{": "}
+        <Text style={styles.value}>N/A</Text>
+      </Text>
+    );
 }
 
 export default LastSeen;
