@@ -4,14 +4,12 @@ import { styles } from "./Stats";
 import BigNumber from "bignumber.js";
 import { WeiToEth } from "./Functions";
 
-function Unpaid(props = { stats: {}, name: "", currency: "", decimals: 5 }) {
+function Unpaid(props = { stats: {}, name: "", currency: "" }) {
   const [value, setValue] = useState();
 
   useEffect(() => {
     if (props.currency.toLowerCase() == "eth")
-      setValue(
-        WeiToEth(new BigNumber(props.stats[props.name]), props.decimals),
-      );
+      setValue(WeiToEth(new BigNumber(props.stats[props.name])).toFixed(7));
   });
 
   return (

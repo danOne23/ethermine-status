@@ -15,7 +15,9 @@ function FetchData(props = { miner: "" }) {
     axios
       .get(url)
       .then(res => {
-        setStats(res.data["data"]);
+        let data = res.data["data"];
+        data["ethPerMin"] = data["coinsPerMin"];
+        setStats(data);
         setLoading(false);
       })
       .catch(err => {

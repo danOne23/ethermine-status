@@ -1,6 +1,7 @@
 import React from "react";
 import { ScrollView, StyleSheet, View } from "react-native";
 import ActiveWorkers from "./ActiveWorkers";
+import EstimatedEarnings from "./EstimatedEarnings";
 import Hashrate from "./Hashrate";
 import LastSeen from "./LastSeen";
 import Shares from "./Shares";
@@ -22,12 +23,8 @@ function Stats(props = { stats: "" }) {
         <Shares stats={props.stats} name={"staleShares"} />
       </View>
       <View style={styles.container}>
-        <Unpaid
-          stats={props.stats}
-          name={"unpaid"}
-          currency={"ETH"}
-          decimals={5}
-        />
+        <Unpaid stats={props.stats} name={"unpaid"} currency={"ETH"} />
+        <EstimatedEarnings value={props.stats["ethPerMin"]} currency="eth" />
       </View>
     </ScrollView>
   );

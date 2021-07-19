@@ -18,8 +18,7 @@ const FormatName = (rawName = "") => {
   return formattedName;
 };
 
-const WeiToEth = (wei = new BigNumber(), decimals) =>
-  wei.dividedBy(Math.pow(10, 18)).toFixed(decimals);
+const WeiToEth = (wei = new BigNumber()) => wei / Math.pow(10, 18);
 
 const FormatTime = unixTime => {
   let now = Math.floor(Date.now() / 1000);
@@ -45,7 +44,28 @@ const FormatTime = unixTime => {
   }
 
   returnTime = Math.floor(returnTime);
+  console.log({ unixTime });
   return `${returnTime} ${unit}`;
 };
 
-export { FormatHashrate, FormatName, WeiToEth, FormatTime };
+const ConvertEstimatedEarnings = perMinute => {
+  let day = perMinute * 60 * 24;
+  let week = day * 7;
+  let month = day * 30;
+  let year = day * 365;
+
+  let returnValues = [day, week, month, year];
+
+  for (let i = 0; i < returnValues.length; i++)
+    returnValues[i] = returnValues[i].toFixed(7);
+
+  return returnValues;
+};
+
+export {
+  FormatHashrate,
+  FormatName,
+  WeiToEth,
+  FormatTime,
+  ConvertEstimatedEarnings,
+};
