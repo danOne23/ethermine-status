@@ -65,6 +65,14 @@ const ConvertEstimatedEarnings = perMinute => {
 const EthToBtc = (ethPerMin, btcPerMin) => btcPerMin / ethPerMin;
 const EthToUsd = (ethPerMin, usdPerMin) => usdPerMin / ethPerMin;
 
+const CalculateSharePercentage = (valid, invalid, stale, target) =>
+  parseFloat((target / (valid + invalid + stale)) * 100).toFixed(0);
+
+const Name = (name, percentage) => {
+  if (percentage > 0) return `${name} ${percentage}%`;
+  else return name;
+};
+
 export {
   FormatHashrate,
   FormatName,
@@ -73,4 +81,6 @@ export {
   ConvertEstimatedEarnings,
   EthToBtc,
   EthToUsd,
+  CalculateSharePercentage,
+  Name,
 };
