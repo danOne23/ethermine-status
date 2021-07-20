@@ -56,7 +56,7 @@ function FetchData(props = { miner: "" }) {
       <View style={styles.container}>
         <Button
           title={"Change currency"}
-          color="#9999999999"
+          color="#949494"
           onPress={() => {
             if (currency === "eth") setCurrency("usd");
             else if (currency === "usd") setCurrency("btc");
