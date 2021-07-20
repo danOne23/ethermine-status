@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
 import { styles } from "../Styles";
 import { FormatName, CalculateSharePercentage, Name } from "../Functions";
 
 function Shares(props = { stats: {}, name: "" }) {
+  const [shareValue, setShareValue] = useState(props.stats[props.name]);
+
+  useEffect(() => {
+    if (shareValue == null) setShareValue(0);
+  });
+
   return (
     <Text style={styles.title}>
       {Name(
@@ -16,7 +22,7 @@ function Shares(props = { stats: {}, name: "" }) {
         ),
       )}
       {": "}
-      <Text style={styles.value}>{props.stats[props.name]}</Text>
+      <Text style={styles.value}>{shareValue}</Text>
     </Text>
   );
 }
