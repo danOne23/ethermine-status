@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
 import ethereumAddress from "ethereum-address";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Stats from "../Stats/Stats";
+import Stats, { styles } from "../Stats/Stats";
 
-function FetchData(props = { miner: "", currency: "eth" }) {
+function FetchData(props = { miner: "" }) {
   const [stats, setStats] = useState();
   const [loading, setLoading] = useState(true);
+  const [currency, setCurrency] = useState("eth");
 
   const url = `https://api.ethermine.org/miner/${props.miner}/currentStats`;
 
@@ -16,9 +17,14 @@ function FetchData(props = { miner: "", currency: "eth" }) {
       .get(url)
       .then(res => {
         let data = res.data["data"];
-        data["ethPerMin"] = data["coinsPerMin"];
-        setStats(data);
-        setLoading(false);
+        if (data !== "NO DATA") {
+          data["ethPerMin"] = data["coinsPerMin"];
+          setStats(data);
+          setLoading(false);
+        } else {
+          setLoading(true);
+          return;
+        }
       })
       .catch(err => {
         console.error(err);
@@ -43,7 +49,21 @@ function FetchData(props = { miner: "", currency: "eth" }) {
         <Text style={{ textAlign: "center" }}>Invalid address</Text>
       </View>
     );
-  return <Stats stats={stats} currency={props.currency} />;
+  return (
+    <View>
+      <Stats stats={stats} currency={currency} />
+      <View style={styles.container}>
+        <Button
+          title={"Change currency"}
+          onPress={() => {
+            if (currency === "eth") setCurrency("usd");
+            else if (currency === "usd") setCurrency("btc");
+            else if (currency === "btc") setCurrency("eth");
+          }}
+        />
+      </View>
+    </View>
+  );
 }
 
 export default FetchData;
