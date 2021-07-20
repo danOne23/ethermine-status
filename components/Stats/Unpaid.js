@@ -25,7 +25,7 @@ function Unpaid(props = { stats: {}, currency: "" }) {
     <Text style={styles.title}>
       Unpaid:{" "}
       <Text style={styles.value}>
-        {value} {props.currency}
+        {value} {props.currency.toUpperCase()}
       </Text>
     </Text>
   );
