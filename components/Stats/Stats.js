@@ -7,7 +7,7 @@ import LastSeen from "./LastSeen";
 import Shares from "./Shares";
 import Unpaid from "./Unpaid";
 
-function Stats(props = { stats: "" }) {
+function Stats(props = { stats: "", currency: "eth" }) {
   return (
     <ScrollView>
       <LastSeen time={props.stats["lastSeen"]} />
@@ -23,8 +23,8 @@ function Stats(props = { stats: "" }) {
         <Shares stats={props.stats} name={"staleShares"} />
       </View>
       <View style={styles.container}>
-        <Unpaid stats={props.stats} name={"unpaid"} currency={"ETH"} />
-        <EstimatedEarnings value={props.stats["ethPerMin"]} currency="eth" />
+        <Unpaid stats={props.stats} currency={props.currency} />
+        <EstimatedEarnings stats={props.stats} currency={props.currency} />
       </View>
     </ScrollView>
   );

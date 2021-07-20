@@ -62,10 +62,15 @@ const ConvertEstimatedEarnings = perMinute => {
   return returnValues;
 };
 
+const EthToBtc = (ethPerMin, btcPerMin) => btcPerMin / ethPerMin;
+const EthToUsd = (ethPerMin, usdPerMin) => usdPerMin / ethPerMin;
+
 export {
   FormatHashrate,
   FormatName,
   WeiToEth,
   FormatTime,
   ConvertEstimatedEarnings,
+  EthToBtc,
+  EthToUsd,
 };

@@ -4,19 +4,20 @@ import { Text, View } from "react-native";
 import { ConvertEstimatedEarnings } from "./Functions";
 import { styles } from "./Stats";
 
-function EstimatedEarnings(props = { currency: "", value: "" }) {
+function EstimatedEarnings(props = { currency: "", stats: {} }) {
   const [perYear, setPerYear] = useState();
   const [perMonth, setPerMonth] = useState();
   const [perWeek, setPerWeek] = useState();
   const [perDay, setPerDay] = useState();
 
   useEffect(() => {
-    let estimated = ConvertEstimatedEarnings(props.value);
+    let key = props.currency + "PerMin";
+    let estimated = ConvertEstimatedEarnings(props.stats[key]);
     setPerDay([estimated[0]]);
     setPerWeek([estimated[1]]);
     setPerMonth([estimated[2]]);
     setPerYear([estimated[3]]);
-  }, []);
+  }, [props.currency]);
 
   return (
     <View>

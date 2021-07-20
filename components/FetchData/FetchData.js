@@ -5,7 +5,7 @@ import ethereumAddress from "ethereum-address";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Stats from "../Stats/Stats";
 
-function FetchData(props = { miner: "" }) {
+function FetchData(props = { miner: "", currency: "eth" }) {
   const [stats, setStats] = useState();
   const [loading, setLoading] = useState(true);
 
@@ -43,7 +43,7 @@ function FetchData(props = { miner: "" }) {
         <Text style={{ textAlign: "center" }}>Invalid address</Text>
       </View>
     );
-  return <Stats stats={stats} />;
+  return <Stats stats={stats} currency={props.currency} />;
 }
 
 export default FetchData;
