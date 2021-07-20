@@ -1,7 +1,7 @@
 import React from "react";
 import { Text } from "react-native";
-import { FormatTime } from "./Functions";
-import { styles } from "./Stats";
+import { FormatTime } from "../Functions";
+import { styles } from "../Styles";
 
 function LastSeen(props = { time: 0 }) {
   if (props.time !== null) {

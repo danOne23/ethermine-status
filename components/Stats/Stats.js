@@ -1,11 +1,12 @@
 import React from "react";
-import { ScrollView, StyleSheet, View } from "react-native";
+import { Dimensions, ScrollView, StyleSheet, View } from "react-native";
 import ActiveWorkers from "./ActiveWorkers";
 import EstimatedEarnings from "./EstimatedEarnings";
 import Hashrate from "./Hashrate";
 import LastSeen from "./LastSeen";
 import Shares from "./Shares";
 import Unpaid from "./Unpaid";
+import { styles } from "../Styles";
 
 function Stats(props = { stats: "", currency: "eth" }) {
   return (
@@ -30,18 +31,4 @@ function Stats(props = { stats: "", currency: "eth" }) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 10,
-  },
-  title: {
-    textAlign: "center",
-  },
-  value: {
-    fontWeight: "bold",
-    textAlign: "center",
-  },
-});
-
 export default Stats;
-export { styles };

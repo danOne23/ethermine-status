@@ -1,6 +1,6 @@
 import React from "react";
 import { Text } from "react-native";
-import { styles } from "./Stats";
+import { styles } from "../Styles";
 
 function Shares(props = { stats: {}, name: "" }) {
   const FormatName = (rawName = "") => {

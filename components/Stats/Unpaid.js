@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Text } from "react-native";
-import { styles } from "./Stats";
-import BigNumber from "bignumber.js";
-import { WeiToEth, EthToBtc, EthToUsd } from "./Functions";
+import { styles } from "../Styles";
+import { WeiToEth, EthToBtc, EthToUsd } from "../Functions";
 
 function Unpaid(props = { stats: {}, currency: "" }) {
   const [value, setValue] = useState();

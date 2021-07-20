@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Text } from "react-native";
-import { styles } from "./Stats";
+import { styles } from "../Styles";
 
 function ActiveWorkers(props = { workers: 0 }) {
   const [activeWorkers, setActiveWorkers] = useState(props.workers);

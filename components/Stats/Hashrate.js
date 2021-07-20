@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View } from "react-native";
-import { styles } from "./Stats";
-import { FormatHashrate, FormatName } from "./Functions";
+import { styles } from "../Styles";
+import { FormatHashrate, FormatName } from "../Functions";
 
 function Hashrate(props = { stats: {}, name: "" }) {
   return (

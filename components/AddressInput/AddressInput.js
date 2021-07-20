@@ -1,7 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import React, { useEffect, useState } from "react";
-import { TextInput, StyleSheet, View, Dimensions } from "react-native";
+import { TextInput, View } from "react-native";
 import FetchData from "../FetchData/FetchData";
+import { styles } from "../Styles";
 
 function AddressInput() {
   const [address, onChangeAddress] = useState();
@@ -28,14 +29,5 @@ function AddressInput() {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  input: {
-    height: 40,
-    width: Dimensions.get("window").width,
-    textAlign: "center",
-    color: "#808080",
-  },
-});
 
 export default AddressInput;

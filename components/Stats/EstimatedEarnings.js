@@ -1,8 +1,8 @@
 import { toUpper } from "lodash";
 import React, { useEffect, useState } from "react";
 import { Text, View } from "react-native";
-import { ConvertEstimatedEarnings } from "./Functions";
-import { styles } from "./Stats";
+import { ConvertEstimatedEarnings } from "../Functions";
+import { styles } from "../Styles";
 
 function EstimatedEarnings(props = { currency: "", stats: {} }) {
   const [perYear, setPerYear] = useState();
